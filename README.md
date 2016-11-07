@@ -1,2 +1,2 @@
 # VA-Migration
-# Welcome! I do not understand how this works yet!
+# Welcome! I am still learning how this works! 
