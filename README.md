@@ -1,5 +1,6 @@
-## VA-Migration
+## Virginia is for Movers
 I am still learning how to use github and am not sure why the text is so large! Maybe I have put my code in the wrong place! All advice is welcome.
+ETA: Thanks, Tom! This is *much* improved.
 
 The data from 1992 year forward are in .xls format, and the tool with which I will be cleaning and analyzing my data is R, so the first thing I did was install the “gdata” package, which includes the function read.xls.
 ```
