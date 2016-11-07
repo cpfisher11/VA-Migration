@@ -15,7 +15,8 @@ There are several irregularly formatted header lines, so I remove these, and I a
 
 Next, I gave my columns some names, since I stripped the headings when I read the data to R.
 ```
-dimnames(InMig9293)[[2]]<- c("In.FIPS.State", "In.FIPS.Co", "From.FIPS.State", "From.FIPS.Co", "State", "County","Returns aka Households In", "Exemptions aka Ppl In", "$")
+dimnames(InMig9293)[[2]]<- c("In.FIPS.State", "In.FIPS.Co", "From.FIPS.State", "From.FIPS.Co", "State", 
+"County","Returns aka Households In", "Exemptions aka Ppl In", "$")
  ```
  
 …and made a new data frame containing only information about counties people moved to, not where they came from (this info is included, but not useful for my project):
