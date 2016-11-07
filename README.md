@@ -7,7 +7,7 @@ The data from 1992 year forward are in .xls format, and the tool with which I wi
 install.packages("gdata")
 library(gdata)
 ```
-Then I read in my In-Migration data:
+Then I read in my In Migration data:
 ```
 IN9293 <- read.xls("C9293vai.xls", header=FALSE, stringsAsFactors=FALSE)
 InMig9293 <- IN9293[-(1:6),]
