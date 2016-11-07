@@ -16,7 +16,7 @@ There are several irregularly formatted header lines, so I remove these, and I a
 Next, I gave my columns some names, since I stripped the headings when I read the data to R.
 ```
 dimnames(InMig9293)[[2]]<- c("In.FIPS.State", "In.FIPS.Co", "From.FIPS.State", "From.FIPS.Co", "State", 
-"County","Returns aka Households In", "Exemptions aka Ppl In", "$")
+                             "County","Returns aka Households In", "Exemptions aka Ppl In", "$")
  ```
  
 …and made a new data frame containing only information about counties people moved to, not where they came from (this info is included, but not useful for my project):
@@ -44,7 +44,7 @@ FinalIn9293$FIPS.Co <- FinalIn9293$In.FIPS.Co
 …and update the final df to reflect that change
 ```
 FinalIn9293<- subset(FinalIn9293, select=c("FIPS.Co", "County", 
-                                               "Exemptions aka Ppl In", "NonMigrant"))
+                                           "Exemptions aka Ppl In", "NonMigrant"))
 ```
 Hooray! On to the Out Migration data. I will spare you the play-by-play, but here’s the code:
 ```
@@ -53,7 +53,7 @@ OutMig9293 <- Out9293[-(1:6),]
 Out9293 <- gsub(",", "", Out9293)
 
 dimnames(OutMig9293)[[2]]<- c("Out.FIPS.State", "Out.FIPS.Co", "To.FIPS.State", "To.FIPS.Co", "State", 
-                             "County","Returns aka Households Out", "Exemptions aka Ppl Out", "$")
+                              "County","Returns aka Households Out", "Exemptions aka Ppl Out", "$")
 
 OutMigration9293 <- OutMig9293[OutMig9293$To.FIPS.State=="00",]
 
@@ -67,7 +67,7 @@ FinalOut9293<- subset(OutMigration9293, select=c("Out.FIPS.Co", "County", "Exemp
 FinalOut9293$FIPS.Co <- FinalOut9293$Out.FIPS.Co
 
 FinalOut9293<- subset(FinalOut9293, select=c("FIPS.Co", "County", 
-                                           "Exemptions aka Ppl Out", "NonMigrant"))
+                                             "Exemptions aka Ppl Out", "NonMigrant"))
 ```
 
 Now I want to combine all this info into a single data frame so I can calculate each county’s net migration. (Here’s where creating “FIPS.Co” pays off.)
@@ -96,6 +96,6 @@ NetMigration93$Percent <- (NetMigration93$Net/NetMigration93$Total92)*100
 …and move everything into a new, complete data frame.
 ```
 FinalNetMigration93 <- subset(NetMigration93, select = c("FIPS.Co", "County", "NonMigrant",
-                                                        "MigrationIn", "MigrationOut", "Net", "Percent"))
+                                                         "MigrationIn", "MigrationOut", "Net", "Percent"))
 ```
 Voila! 
